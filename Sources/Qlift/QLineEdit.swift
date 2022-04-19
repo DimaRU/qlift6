@@ -117,7 +117,7 @@ open class QLineEdit: QWidget {
         return QAction(ptr: actionPtr)
     }
 
-    open func connectTextEdited<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, String>) {
+    open func connectTextEdited<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, String, R>) {
         self.textEditedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -129,7 +129,7 @@ open class QLineEdit: QWidget {
         }
     }
 
-    open func connectTextChanged<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, String>) {
+    open func connectTextChanged<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, String, R>) {
         self.textChangedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -141,7 +141,7 @@ open class QLineEdit: QWidget {
         }
     }
 
-    open func connectReturnPressed<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectReturnPressed<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.returnPressedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }
@@ -153,7 +153,7 @@ open class QLineEdit: QWidget {
         }
     }
 
-    open func connectEditingFinished<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectEditingFinished<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.editingFinishedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }
@@ -165,7 +165,7 @@ open class QLineEdit: QWidget {
         }
     }
 
-    open func connectInputRejected<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectInputRejected<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.inputRejectedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }

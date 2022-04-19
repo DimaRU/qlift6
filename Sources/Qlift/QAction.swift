@@ -31,7 +31,7 @@ open class QAction: QObject {
         set { QAction_setText(self.ptr, newValue) }
     }
 
-    open func connectTriggered<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Bool>) {
+    open func connectTriggered<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Bool, R>) {
         self.triggeredCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -43,4 +43,3 @@ open class QAction: QObject {
         }
     }
 }
-

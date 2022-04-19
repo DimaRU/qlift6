@@ -49,14 +49,14 @@ open class QAbstractButton: QWidget {
         set { QAbstractButton_setDown(ptr, newValue) }
     }
 
-    open func connectClicked<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Bool>) {
+    open func connectClicked<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Bool, R>) {
         self.clickedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
         connectClickedHook(receiver: receiver)
     }
 
-    open func connectClicked<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectClicked<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.clickedCallback = { [weak target] _ in
             if let target = target { _ = slot(target)() }
         }
@@ -71,7 +71,7 @@ open class QAbstractButton: QWidget {
     }
 
 
-    open func connectToggled<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Bool>) {
+    open func connectToggled<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Bool, R>) {
         self.toggledCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -82,7 +82,7 @@ open class QAbstractButton: QWidget {
         }
     }
 
-    open func connectPressed<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectPressed<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.pressedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }
@@ -93,7 +93,7 @@ open class QAbstractButton: QWidget {
         }
     }
 
-    open func connectReleased<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectReleased<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.releasedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }

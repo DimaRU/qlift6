@@ -48,7 +48,7 @@ open class QTimer: QObject {
         }
     }
 
-    open func connect<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connect<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.timeoutCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }

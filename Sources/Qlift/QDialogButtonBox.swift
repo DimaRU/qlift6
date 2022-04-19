@@ -38,7 +38,7 @@ open class QDialogButtonBox: QWidget {
         super.init(ptr: QDialogButtonBox_new(parent?.ptr))
     }
 
-    open func connectAccepted<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectAccepted<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.acceptedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }
@@ -49,7 +49,7 @@ open class QDialogButtonBox: QWidget {
         }
     }
 
-    open func connectRejected<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectRejected<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.rejectedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }

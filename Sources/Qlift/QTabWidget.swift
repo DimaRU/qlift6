@@ -156,7 +156,7 @@ open class QTabWidget: QWidget {
         return String(utf16CodeUnits: s.utf16, count: Int(s.size))
     }
 
-    open func connectCurrentChanged<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectCurrentChanged<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.currentChangedCallBack = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -167,7 +167,7 @@ open class QTabWidget: QWidget {
         }
     }
 
-    open func connectTabBarClicked<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectTabBarClicked<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.tabBarClickedCallBack = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -178,7 +178,7 @@ open class QTabWidget: QWidget {
         }
     }
 
-    open func connectTabBarDoubleClicked<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectTabBarDoubleClicked<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.tabBarDoubleClickedCallBack = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -189,7 +189,7 @@ open class QTabWidget: QWidget {
         }
     }
 
-    open func connectTabCloseRequested<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectTabCloseRequested<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.tabCloseRequestedCallBack = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }

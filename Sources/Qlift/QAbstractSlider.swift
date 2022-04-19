@@ -38,7 +38,7 @@ open class QAbstractSlider: QWidget {
         valueChangedCallback = nil
     }
 
-    open func connectActionTriggered<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, SliderAction>) {
+    open func connectActionTriggered<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, SliderAction, R>) {
         self.actionTriggeredCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -50,7 +50,7 @@ open class QAbstractSlider: QWidget {
         }
     }
 
-    open func connectRangeChanged<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotTwin<T, R, Int32, Int32>) {
+    open func connectRangeChanged<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotTwin<T, Int32, Int32, R>) {
         self.rangeChangedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0, $1) }
         }
@@ -63,7 +63,7 @@ open class QAbstractSlider: QWidget {
 
     }
 
-    open func connectSliderMoved<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectSliderMoved<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.sliderMovedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -75,7 +75,7 @@ open class QAbstractSlider: QWidget {
         }
     }
 
-    open func connectSliderPressed<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectSliderPressed<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.sliderPressedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }
@@ -88,7 +88,7 @@ open class QAbstractSlider: QWidget {
 
     }
 
-    open func connectSliderReleased<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
+    open func connectSliderReleased<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotVoid<T, R>) {
         self.sliderReleasedCallback = { [weak target] in
             if let target = target { _ = slot(target)() }
         }
@@ -100,7 +100,7 @@ open class QAbstractSlider: QWidget {
         }
     }
 
-    open func connectValueChanged<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectValueChanged<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.valueChangedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }

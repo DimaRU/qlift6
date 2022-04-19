@@ -51,7 +51,7 @@ open class QButtonGroup: QObject {
         QButtonGroup_checkedId(ptr)
     }
 
-    open func connectIdClicked<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectIdClicked<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.idClickedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -64,7 +64,7 @@ open class QButtonGroup: QObject {
 
     }
 
-    open func connectIdToggled<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotTwin<T, R, Int32, Bool>) {
+    open func connectIdToggled<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping SlotTwin<T, Int32, Bool, R>) {
         self.idToggledCallback = { [weak target] in
             if let target = target { _ = slot(target)($0, $1) }
         }
@@ -76,7 +76,7 @@ open class QButtonGroup: QObject {
         }
     }
 
-    open func connectIdPressed<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectIdPressed<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.idPressedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
@@ -89,7 +89,7 @@ open class QButtonGroup: QObject {
 
     }
 
-    open func connectIdReleased<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectIdReleased<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.idReleasedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }

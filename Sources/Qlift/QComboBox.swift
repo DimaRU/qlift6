@@ -104,7 +104,7 @@ open class QComboBox: QWidget {
         QComboBox_setQStyledItemDelegate(ptr)
     }
 
-    open func connectCurrentIndexChanged<T: QObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, R, Int32>) {
+    open func connectCurrentIndexChanged<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.currentIndexChangedIntCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
         }
