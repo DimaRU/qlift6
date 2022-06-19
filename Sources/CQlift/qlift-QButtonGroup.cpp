@@ -2,6 +2,7 @@
 
 #include "qlift-QButtonGroup.h"
 
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 [[maybe_unused]] void QButtonGroup_idClicked_connect(void *buttonGroup,
                                                      void *receiver,
                                                      void *context,
@@ -41,6 +42,7 @@
                      static_cast<QObject *>(receiver),
                      [context, slot_ptr](bool id) { (*slot_ptr)(context, id); });
 }
+#endif
 
 [[maybe_unused]] void QButtonGroup_addButton(void *buttonGroup, void *abstractButton, int id) {
     static_cast<QButtonGroup *>(buttonGroup)->addButton(static_cast<QAbstractButton *>(abstractButton), id);

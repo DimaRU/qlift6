@@ -58,6 +58,7 @@ open class QComboBox: QWidget {
         set { QComboBox_setCurrentText(ptr, newValue) }
     }
 
+#if QT5_15
     public var placeholderText: String {
         get {
             let s = QComboBox_placeholderText(ptr)
@@ -65,7 +66,7 @@ open class QComboBox: QWidget {
         }
         set { QComboBox_setPlaceholderText(ptr, newValue) }
     }
-
+#endif
     public var currentIndex: Int32 {
         get { QComboBox_currentIndex(ptr) }
         set { QComboBox_setCurrentIndex(ptr, newValue) }

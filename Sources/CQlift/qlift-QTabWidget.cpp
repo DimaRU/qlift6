@@ -48,9 +48,11 @@
 [[maybe_unused]] void QTabWidget_setTabToolTip(void *tabwidget, int index, const char *tip) {
     static_cast<QTabWidget *>(tabwidget)->setTabToolTip(index, tip);
 }
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 [[maybe_unused]] void QTabWidget_setTabVisible(void *tabwidget, int index, bool visible) {
     static_cast<QTabWidget *>(tabwidget)->setTabVisible(index, visible);
 }
+#endif
 [[maybe_unused]] void QTabWidget_setTabWhatsThis(void *tabwidget, int index, const char *text) {
     static_cast<QTabWidget *>(tabwidget)->setTabWhatsThis(index, text);
 }
@@ -93,9 +95,13 @@
 [[maybe_unused]] bool QTabWidget_isTabEnabled(void *tabwidget, int index) {
     return static_cast<QTabWidget *>(tabwidget)->isTabEnabled(index);
 }
+
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 [[maybe_unused]] bool QTabWidget_isTabVisible(void *tabwidget, int index) {
     return static_cast<QTabWidget *>(tabwidget)->isTabVisible(index);
 }
+#endif
+
 [[maybe_unused]] bool QTabWidget_tabBarAutoHide(void *tabwidget) {
     return static_cast<QTabWidget *>(tabwidget)->tabBarAutoHide();
 }

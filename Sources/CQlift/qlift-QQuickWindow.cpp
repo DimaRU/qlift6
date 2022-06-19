@@ -11,12 +11,14 @@
 [[maybe_unused]] void *QQuickWindow_new(void * _Nullable parent) {
     return new QQuickWindow(static_cast<QWindow *>(parent));
 }
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 [[maybe_unused]] void QQuickWindow_beginExternalCommands(void *window) {
     static_cast<QQuickWindow *>(window)->beginExternalCommands();
 }
 [[maybe_unused]] void QQuickWindow_endExternalCommands(void *window) {
     static_cast<QQuickWindow *>(window)->endExternalCommands();
 }
+#endif
 [[maybe_unused]] void QQuickWindow_setColor(void *window, const void *color) {
     static_cast<QQuickWindow *>(window)->setColor(*static_cast<const QColor *>(color));
 }

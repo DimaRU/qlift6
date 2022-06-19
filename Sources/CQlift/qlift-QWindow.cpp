@@ -141,13 +141,14 @@
 [[maybe_unused]] bool QWindow_close(void *window) {
     return static_cast<QWindow *>(window)->close();
 }
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
 [[maybe_unused]] bool QWindow_startSystemMove(void *window) {
     return static_cast<QWindow *>(window)->startSystemMove();
 }
 [[maybe_unused]] bool QWindow_startSystemResize(void *window, int edges) {
     return static_cast<QWindow *>(window)->startSystemResize(static_cast<Qt::Edges>(edges));
 }
-
+#endif
 [[maybe_unused]] void QWindow_create(void *window) {
     static_cast<QWindow *>(window)->create();
 }

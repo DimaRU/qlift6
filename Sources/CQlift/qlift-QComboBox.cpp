@@ -27,9 +27,11 @@ QComboBox_addItem(void *comboBox, const char *text) {
 [[maybe_unused]] void QComboBox_setMinimumContentsLength(void *comboBox, int characters) {
     static_cast<QComboBox*>(comboBox)->setMinimumContentsLength(characters);
 }
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 [[maybe_unused]] void QComboBox_setPlaceholderText(void *comboBox, const char *placeholderText) {
     static_cast<QComboBox*>(comboBox)->setPlaceholderText(placeholderText);
 }
+#endif
 [[maybe_unused]] void QComboBox_setCurrentIndex(void *comboBox, int index) {
     static_cast<QComboBox*>(comboBox)->setCurrentIndex(index);
 }
@@ -46,10 +48,12 @@ QComboBox_addItem(void *comboBox, const char *text) {
 [[maybe_unused]] int QComboBox_minimumContentsLength(void *comboBox) {
     return static_cast<QComboBox*>(comboBox)->minimumContentsLength();
 }
+#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 [[maybe_unused]] CQString QComboBox_placeholderText(void *comboBox) {
     auto text = static_cast<QComboBox*>(comboBox)->placeholderText();
     return CQString { text.utf16(), text.size() };
 }
+#endif
 [[maybe_unused]] int QComboBox_currentIndex(void *comboBox) {
     return static_cast<QComboBox*>(comboBox)->currentIndex();
 }
