@@ -58,10 +58,10 @@ private func runCmd(url: URL, command: String) throws -> (exitCode: Int32, outpu
 }
 
 private func getQTBuildFlag() throws -> String? {
-    guard let url = getURL(for: "pkg-config") else { return nil }
+    guard let url = getURL(for: "pkg-config") else { return "QT5_15" }
     
     let (exitCode, version) = try runCmd(url: url, command: "--modversion Qt5Widgets")
-    guard exitCode == 0, !version.isEmpty else { return nil }
+    guard exitCode == 0, !version.isEmpty else { return "QT5_15" }
     
     let compare = version.compare("5.15.0", options: .numeric)
     if compare == .orderedSame || compare == .orderedDescending {
