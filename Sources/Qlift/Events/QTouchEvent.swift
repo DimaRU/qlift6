@@ -28,15 +28,7 @@ public class QTouchEvent: QInputEvent {
         return QObject.init(ptr: ptr)
     }
     
-    public func window() -> QWindow? {
-        guard let qobj = QTouchEvent_window(ptr) else { return nil }
-        if let raw = QObject_getSwiftObject(qobj) {
-            return Unmanaged<QWindow>.fromOpaque(raw).takeUnretainedValue()
-        }
-        return QWindow.init(ptr: ptr)
-    }
-    
-    public func device() -> QTouchDevice {
-        QTouchDevice.init(ptr: QTouchEvent_device(ptr))
-    }
+//    public func device() -> QTouchDevice {
+//        QTouchDevice.init(ptr: QTouchEvent_device(ptr))
+//    }
 }

@@ -36,7 +36,7 @@ typedef unsigned short ushort;
 #pragma clang assume_nonnull begin
 typedef struct {
     const ushort * utf16;
-    const int size;
+    const long long size;
 } CQString;
 #pragma clang assume_nonnull end
 

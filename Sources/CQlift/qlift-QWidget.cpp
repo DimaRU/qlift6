@@ -356,7 +356,7 @@
     static_cast<QliftWidget *>(widget)->contextMenuEventSuper(static_cast<QContextMenuEvent *>(event));
 }
 [[maybe_unused]] void QWidget_enterEvent(void *widget, void *event) {
-    static_cast<QliftWidget *>(widget)->enterEventSuper(static_cast<QEvent *>(event));
+    static_cast<QliftWidget *>(widget)->enterEventSuper(static_cast<QEnterEvent *>(event));
 }
 [[maybe_unused]] void QWidget_focusInEvent(void *widget, void *event) {
     static_cast<QliftWidget *>(widget)->focusInEventSuper(static_cast<QFocusEvent *>(event));
@@ -427,7 +427,7 @@ W_OBJECT_IMPL(QliftWidget)
 [[maybe_unused]] void QliftWidget::contextMenuEventSuper(QContextMenuEvent *event) {
     QWidget::contextMenuEvent(event);
 }
-[[maybe_unused]] void QliftWidget::enterEventSuper(QEvent *event) {
+[[maybe_unused]] void QliftWidget::enterEventSuper(QEnterEvent *event) {
     QWidget::enterEvent(event);
 }
 [[maybe_unused]] void QliftWidget::focusInEventSuper(QFocusEvent *event) {
@@ -525,7 +525,7 @@ W_OBJECT_IMPL(QliftWidget)
     else
         QWidget::contextMenuEvent(event);
 }
-[[maybe_unused]] void QliftWidget::enterEvent(QEvent *event) {
+[[maybe_unused]] void QliftWidget::enterEvent(QEnterEvent *event) {
     if (swiftObject != nullptr)
         m_eventFunctor(swiftObject, CQenterEvent, event);
     else

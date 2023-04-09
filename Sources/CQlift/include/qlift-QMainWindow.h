@@ -79,7 +79,7 @@ public:
     void changeEventSuper(QEvent *event);
     void closeEventSuper(QCloseEvent *event);
     void contextMenuEventSuper(QContextMenuEvent *event);
-    void enterEventSuper(QEvent *event);
+    void enterEventSuper(QEnterEvent *event);
     void focusInEventSuper(QFocusEvent *event);
     void focusOutEventSuper(QFocusEvent *event);
     void hideEventSuper(QHideEvent *event);
@@ -106,7 +106,7 @@ protected:
     void changeEvent(QEvent *event) override;
     void closeEvent(QCloseEvent *event) override;
     void contextMenuEvent(QContextMenuEvent *event) override;
-    void enterEvent(QEvent *event) override;
+    void enterEvent(QEnterEvent *event) override;
     void focusInEvent(QFocusEvent *event) override;
     void focusOutEvent(QFocusEvent *event) override;
     void hideEvent(QHideEvent *event) override;

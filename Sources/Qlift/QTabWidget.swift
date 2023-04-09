@@ -134,14 +134,12 @@ open class QTabWidget: QWidget {
     public func setTabToolTip(index: Int32, tip: String) {
         QTabWidget_setTabToolTip(ptr, index, tip)
     }
-#if QT5_15
     public func setTabVisible(index: Int32, visible: Bool) {
         QTabWidget_setTabVisible(ptr, index, visible)
     }
     public func isTabVisible(index: Int32) -> Bool {
         QTabWidget_isTabVisible(ptr, index)
     }
-#endif
     public func setTabWhatsThis(index: Int32, text: String) {
         QTabWidget_setTabWhatsThis(ptr, index, text)
     }

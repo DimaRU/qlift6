@@ -1,5 +1,5 @@
 # Qlift
-## Swift 5 API for Qt5
+## Swift API for Qt6
 
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Longhanks/qlift-swift-example/master/LICENSE)
 
@@ -9,7 +9,7 @@
 
 This package provides:
 
- - A Swift package that wraps Qt5 to a swifty API.
+ - A Swift package that wraps Qt6 to a swifty API.
 
  An executable called `qlift-uic`, that can be used in a similiar fashion to Qt's uic: generate Swift code from Qt user interface files (.ui), moved to separate repository: [https://github.com/DimaRU/QliftUIC](https://github.com/DimaRU/QliftUIC)
 
@@ -20,16 +20,16 @@ This package provides:
 
 ## Building
 
-Qt5 must be installed. On macOS, use `brew install qt@5`. On Linux, `pkgconfig` is used to find the build flags. On macOS, `.pc` files also is used to find Qt frameworks and build flags. Use Xcode from 13.3 (now beta) for build macOS applications. 
+Qt6 must be installed. On macOS, use `brew install qt`. On Linux, `pkgconfig` is used to find the build flags. On macOS, `.pc` files also is used to find Qt frameworks and build flags. Use Xcode from 13.3 for build macOS applications. 
 For macOS, add next line to `.zprofile`:
 
 ```bash
-launchctl setenv PKG_CONFIG_PATH /opt/homebrew/opt/qt5/lib/pkgconfig
+launchctl setenv PKG_CONFIG_PATH /opt/homebrew/opt/qt/lib/pkgconfig
 ```
 on Apple Silicon Mac or
 
 ```bash
-launchctl setenv PKG_CONFIG_PATH /usr/local/opt/qt5/lib/pkgconfig
+launchctl setenv PKG_CONFIG_PATH /usr/local/opt/qt/lib/pkgconfig
 ```
 on Intel Mac or Apple Silicon Mac for develop under Rosetta
 

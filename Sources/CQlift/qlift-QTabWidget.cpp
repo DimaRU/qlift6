@@ -1,6 +1,7 @@
 #include <QTabWidget>
 #include <wobjectimpl.h>
 #include "qlift-QTabWidget.h"
+#include "qlift-QObject.h"
 
 [[maybe_unused]] void *QTabWidget_new(void *parent) {
     return static_cast<void *>(new QTabWidget{static_cast<QWidget *>(parent)} );

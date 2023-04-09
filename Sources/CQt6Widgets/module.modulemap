@@ -1,0 +1,3 @@
+module CQt6Widgets [system] {
+    export *
+}

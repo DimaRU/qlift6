@@ -172,7 +172,7 @@
     static_cast<QFont *>(font)->setUnderline(enable);
 }
 [[maybe_unused]] void QFont_setWeight(void *font, int weight) {
-    static_cast<QFont *>(font)->setWeight(weight);
+    static_cast<QFont *>(font)->setWeight(static_cast<QFont::Weight>(weight));
 }
 [[maybe_unused]] void QFont_setWordSpacing(void *font, double spacing) {
     static_cast<QFont *>(font)->setWordSpacing(spacing);

@@ -51,7 +51,6 @@ open class QButtonGroup: QObject {
         QButtonGroup_checkedId(ptr)
     }
 
-    #if QT5_15
     open func connectIdClicked<T: AnyObject, R: Any>(receiver: QObject? = nil, target: T, to slot: @escaping Slot<T, Int32, R>) {
         self.idClickedCallback = { [weak target] in
             if let target = target { _ = slot(target)($0) }
@@ -102,5 +101,4 @@ open class QButtonGroup: QObject {
         }
 
     }
-    #endif
 }

@@ -23,7 +23,7 @@ open class QMainWindow: QWidget {
             case CQchangeEvent: _self.changeEvent(event: QEvent(ptr: event))
             case CQcloseEvent: _self.closeEvent(event: QCloseEvent(ptr: event))
             case CQcontextMenuEvent: _self.contextMenuEvent(event: QContextMenuEvent(ptr: event))
-            case CQenterEvent: _self.enterEvent(event: QEvent(ptr: event))
+            case CQenterEvent: _self.enterEvent(event: QEnterEvent(ptr: event))
             case CQfocusInEvent: _self.focusInEvent(event: QFocusEvent(ptr: event))
             case CQfocusOutEvent: _self.focusOutEvent(event: QFocusEvent(ptr: event))
             case CQhideEvent: _self.hideEvent(event: QHideEvent(ptr: event))
@@ -81,7 +81,7 @@ open class QMainWindow: QWidget {
     override open func contextMenuEvent(event: QContextMenuEvent) {
         QMainWindow_contextMenuEvent(ptr, event.ptr)
     }
-    override open func enterEvent(event: QEvent) {
+    override open func enterEvent(event: QEnterEvent) {
         QMainWindow_enterEvent(ptr, event.ptr)
     }
     override open func focusInEvent(event: QFocusEvent) {

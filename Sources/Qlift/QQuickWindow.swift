@@ -31,25 +31,14 @@ open class QQuickWindow: QWindow {
     }
 
     // MARK: Functions
-#if QT5_15
     public func beginExternalCommands() {
         QQuickWindow_beginExternalCommands(ptr)
     }
     public func endExternalCommands() {
         QQuickWindow_endExternalCommands(ptr)
     }
-#endif
-    public func setPersistentOpenGLContext(persistent: Bool) {
-        QQuickWindow_setPersistentOpenGLContext(ptr, persistent)
-    }
     public func setPersistentSceneGraph(persistent: Bool) {
         QQuickWindow_setPersistentSceneGraph(ptr, persistent)
-    }
-    public func clearBeforeRendering() {
-        QQuickWindow_clearBeforeRendering(ptr)
-    }
-    public func isPersistentOpenGLContext() {
-        QQuickWindow_isPersistentOpenGLContext(ptr)
     }
     public func isPersistentSceneGraph() {
         QQuickWindow_isPersistentSceneGraph(ptr)

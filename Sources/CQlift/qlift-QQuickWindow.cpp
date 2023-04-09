@@ -5,8 +5,8 @@
 //  Created by Dmitriy Borovikov on 06.12.2021.
 //
 
-#include <QQuickWindow>
 #include "qlift-QQuickWindow.h"
+#include <QQuickWindow>
 
 [[maybe_unused]] void *QQuickWindow_new(void * _Nullable parent) {
     return new QQuickWindow(static_cast<QWindow *>(parent));
@@ -22,14 +22,8 @@
 [[maybe_unused]] void QQuickWindow_setColor(void *window, const void *color) {
     static_cast<QQuickWindow *>(window)->setColor(*static_cast<const QColor *>(color));
 }
-[[maybe_unused]] void QQuickWindow_setPersistentOpenGLContext(void *window, bool persistent) {
-    static_cast<QQuickWindow *>(window)->setPersistentOpenGLContext(persistent);
-}
 [[maybe_unused]] void QQuickWindow_setPersistentSceneGraph(void *window, bool persistent) {
     static_cast<QQuickWindow *>(window)->setPersistentSceneGraph(persistent);
-}
-[[maybe_unused]] bool QQuickWindow_clearBeforeRendering(void *window) {
-    return static_cast<QQuickWindow *>(window)->clearBeforeRendering();
 }
 [[maybe_unused]] void *QQuickWindow_color(void *window) {
     auto r = static_cast<QQuickWindow *>(window)->color();
@@ -41,9 +35,6 @@
 }
 [[maybe_unused]] double QQuickWindow_effectiveDevicePixelRatio(void *window) {
     return static_cast<QQuickWindow *>(window)->effectiveDevicePixelRatio();
-}
-[[maybe_unused]] bool QQuickWindow_isPersistentOpenGLContext(void *window) {
-    return static_cast<QQuickWindow *>(window)->isPersistentOpenGLContext();
 }
 [[maybe_unused]] bool QQuickWindow_isPersistentSceneGraph(void *window) {
     return static_cast<QQuickWindow *>(window)->isPersistentSceneGraph();
